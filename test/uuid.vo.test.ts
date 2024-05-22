@@ -1,4 +1,4 @@
-import { InvalidUuidError, Uuid } from "../src/category/domain/value-objects/uuid.vo";
+import { InvalidUuidError, Uuid } from "../src/category/uuid.vo";
 
 describe("Uuid unit tests", function () {
 
