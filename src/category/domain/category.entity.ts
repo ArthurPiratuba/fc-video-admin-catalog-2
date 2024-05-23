@@ -1,6 +1,6 @@
-import { Entity } from "../shared/domain/entity";
-import { EntityValidatorError } from "../shared/domain/validators/validation.error";
-import { ValueObject } from "../shared/domain/value-object";
+import { Entity } from "../../shared/domain/entity";
+import { EntityValidatorError } from "../../shared/domain/validation.error";
+import { ValueObject } from "../../shared/domain/value-object";
 import { CategoryValidatorFactory } from "./category.validator";
 import { Uuid } from "./uuid.vo";
 

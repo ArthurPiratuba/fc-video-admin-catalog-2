@@ -1,7 +1,7 @@
-import { Entity } from "./entity";
-import { NotFoundError } from "./errors/not-found.error";
-import { Repository } from "./repository.interface";
-import { ValueObject } from "./value-object";
+import { Entity } from "../domain/entity";
+import { NotFoundError } from "../domain/not-found.error";
+import { Repository } from "../domain/repository.interface";
+import { ValueObject } from "../domain/value-object";
 
 export abstract class InMemoryRepository<T extends Entity, EntityId extends ValueObject> implements Repository<T, EntityId> {
 

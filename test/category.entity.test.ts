@@ -1,5 +1,5 @@
-import { Category } from "../src/category/category.entity";
-import { Uuid } from "../src/category/uuid.vo";
+import { Category } from "../src/category/domain/category.entity";
+import { Uuid } from "../src/category/domain/uuid.vo";
 
 describe('Category Unit Tests', () => {
 
