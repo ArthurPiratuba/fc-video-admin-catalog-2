@@ -32,11 +32,8 @@ export class SearchParams<Filter = string> extends ValueObject {
 
     private set page(value: number) {
         let _page = +value;
-
-        if (Number.isNaN(_page) || _page <= 0 || parseInt(_page as any) !== _page) {
+        if (Number.isNaN(_page) || _page <= 0 || parseInt(_page as any) !== _page)
             _page = 1;
-        }
-
         this._page = _page;
     }
 
@@ -46,7 +43,6 @@ export class SearchParams<Filter = string> extends ValueObject {
 
     private set per_page(value: number) {
         let _per_page = value === (true as any) ? this._per_page : +value;
-
         if (
             Number.isNaN(_per_page) ||
             _per_page <= 0 ||
@@ -63,8 +59,7 @@ export class SearchParams<Filter = string> extends ValueObject {
     }
 
     private set sort(value: string | null) {
-        this._sort =
-            value === null || value === undefined || value === '' ? null : `${value}`;
+        this._sort = value === null || value === undefined || value === '' ? null : `${value}`;
     }
 
     get sort_dir(): SortDirection | null {
