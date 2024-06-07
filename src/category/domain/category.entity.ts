@@ -1,6 +1,7 @@
 import { Entity } from "../../shared/domain/entity";
 import { EntityValidatorError } from "../../shared/domain/validation.error";
 import { ValueObject } from "../../shared/domain/value-object";
+import { CategoryFakeBuilder } from "./category-fake.builder";
 import { CategoryValidatorFactory } from "./category.validator";
 import { Uuid } from "./uuid.vo";
 
@@ -43,6 +44,10 @@ export class Category extends Entity {
         Category.validate(category);
         return category;
     }
+
+    static fake() {
+        return CategoryFakeBuilder
+      }
 
     changeName(name: string): void {
         this.name = name;

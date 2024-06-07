@@ -1,25 +1,30 @@
+
 import { Entity } from "./entity";
 import { SearchParams } from "./search-params";
 import { SearchResult } from "./search-result";
 import { ValueObject } from "./value-object";
 
-export interface Repository<T extends Entity, EntityId extends ValueObject> {
-    insert(entity: T): Promise<void>;
-    bulkInsert(entity: T[]): Promise<void>;
-    update(entity: T): Promise<void>;
-    delete(id: EntityId): Promise<void>;
-    findById(id: EntityId): Promise<T | null>;
-    findAll(): Promise<T[]>;
-    getEntity(): new (...args: any[]) => T;
+export interface IRepository<E extends Entity, EntityId extends ValueObject> {
+
+  insert(entity: E): Promise<void>;
+  bulkInsert(entities: E[]): Promise<void>;
+  update(entity: E): Promise<void>;
+  delete(entity_id: EntityId): Promise<void>;
+
+  findById(entity_id: EntityId): Promise<E | null>;
+  findAll(): Promise<E[]>;
+
+  getEntity(): new (...args: any[]) => E;
 }
 
-export interface SearchableRepository<
-    E extends Entity,
-    EntityId extends ValueObject,
-    Filter = string,
-    SearchInput = SearchParams<Filter>,
-    SearchOutput = SearchResult
-> extends Repository<E, EntityId> {
-    sortableFields: string[];
-    search(props: SearchInput): Promise<SearchOutput>;
+export interface ISearchableRepository<
+  E extends Entity,
+  EntityId extends ValueObject,
+  Filter = string,
+  SearchInput = SearchParams<Filter>,
+  SearchOutput = SearchResult
+> extends IRepository<E, EntityId> {
+
+  sortableFields: string[];
+  search(props: SearchInput): Promise<SearchOutput>;
 }
